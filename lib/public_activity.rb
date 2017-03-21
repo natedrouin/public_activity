@@ -47,7 +47,7 @@ module PublicActivity
   # Method used to choose which ORM to load
   # when PublicActivity::Activity class is being autoloaded
   def self.inherit_orm(model="Activity")
-    orm = PublicActivity.config.orm
+    orm = :mongoid
     require "public_activity/orm/mongoid"
     "PublicActivity::ORM::#{orm.to_s.classify}::#{model}".constantize
   end
