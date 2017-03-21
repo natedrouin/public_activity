@@ -48,8 +48,8 @@ module PublicActivity
   # when PublicActivity::Activity class is being autoloaded
   def self.inherit_orm(model="Activity")
     orm = PublicActivity.config.orm
-    require "public_activity/orm/#{orm.to_s}"
-    "PublicActivity::ORM::#{orm.to_s.classify}::#{model}".constantize
+    require "public_activity/orm/mongoid"
+    "PublicActivity::ORM::#mongoid.classify}::#{model}".constantize
   end
 
   # Module to be included in ActiveRecord models. Adds required functionality.
